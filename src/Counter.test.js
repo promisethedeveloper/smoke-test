@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import { render } from "@testing-library/react";
 import Counter from "./Counter";
 
@@ -10,4 +9,10 @@ import Counter from "./Counter";
 // });
 test("it renders without crashing", () => {
 	render(<Counter />);
+});
+
+test("playing with queries", () => {
+	const { getAllByText, getByText } = render(<Counter />);
+	console.log(getAllByText("count", { exact: false }));
+	console.log(getByText("Cake"));
 });
